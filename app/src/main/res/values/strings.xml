@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Scaffold</string>
+
+    <string name="submit_btn">submit</string>
+    <string name="title_hint">title</string>
+    <string name="desc_hint">description</string>
+    <string name="submit_history_text">View Submit History</string>
+    <string name="submitted_at_label_text">submitted at :</string>
+    <string name="title_label_text">title :</string>
+    <string name="description_label_text">description :</string>
+</resources>

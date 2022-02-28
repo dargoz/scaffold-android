@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:gravity="center"
+    tools:context=".features.feedback.presentation.ui.FeedbackFragment">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/feedback_title_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_hint"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/feedback_desc_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/desc_hint"
+        />
+
+    <Button
+        android:id="@+id/feedback_submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_btn"/>
+
+    <TextView
+        android:id="@+id/feedback_history_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:text="@string/submit_history_text"/>
+
+</LinearLayout>
