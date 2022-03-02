@@ -14,8 +14,6 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 
 import io.reactivex.Flowable;
-import io.reactivex.observers.TestObserver;
-import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.TestSubscriber;
 
 public class BugReportUseCaseTest {
@@ -48,13 +46,8 @@ public class BugReportUseCaseTest {
     @Test
     public void getDecoration() {
         String actual = useCase.getDescriptionDecoration(issueTestCase);
-        String expected = "✔️ Actual\nerror❌ Expected\ntidak error";
-        assertEquals(actual, expected);
-    }
-
-    @Test
-    public void getScheduler() {
-        assertEquals(Schedulers.io(), useCase.getScheduler());
+        String expected = "✔️ Actual\nerror\n\n❌ Expected\ntidak error";
+        assertEquals(expected, actual);
     }
 
     @Test

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.dargoz.scaffold.arch.R;
 import com.dargoz.scaffold.arch.core.binding.BaseFragment;
 import com.dargoz.scaffold.arch.databinding.FeedbackFragmentBinding;
+import com.dargoz.scaffold.arch.features.feedback.presentation.models.IssueVM;
 import com.dargoz.scaffold.arch.features.feedback.presentation.presenters.FeedbackContract;
 import com.dargoz.scaffold.arch.features.feedback.presentation.presenters.FeedbackPresenter;
 
@@ -38,10 +39,13 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.feedbackSubmitButton.setOnClickListener(v ->
+        binding.feedbackSubmitButton.setOnClickListener(v -> {
+            if (binding.feedbackTitleEditText.getText() != null) {
                 feedbackPresenter.submitFeedback(
                         binding.feedbackTitleEditText.getText().toString()
-                ));
+                );
+            }
+        });
         binding.feedbackHistoryTextView.setOnClickListener(v -> Navigation.findNavController(v)
                 .navigate(R.id.action_feedbackFragment_to_feedbackHistoryFragment));
     }
@@ -52,12 +56,12 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
     }
 
     @Override
-    public void onSuccess() {
+    public void onSuccess(IssueVM issueVM) {
         Toast.makeText(requireActivity(), "Success submit feedback", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onError() {
+    public void onError(String errorMessage) {
 
     }
 }

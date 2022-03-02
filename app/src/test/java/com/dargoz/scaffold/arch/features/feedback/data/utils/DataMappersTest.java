@@ -3,8 +3,8 @@ package com.dargoz.scaffold.arch.features.feedback.data.utils;
 import static org.junit.Assert.*;
 
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.local.models.Issue;
-import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.requests.IssueRequest;
-import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.responses.IssueResponse;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.requests.IssueRequest;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.responses.IssueResponse;
 import com.dargoz.scaffold.arch.features.feedback.di.NetworkModule;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 

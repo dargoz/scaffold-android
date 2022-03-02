@@ -1,4 +1,4 @@
-package com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.constants;
+package com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.constants;
 
 public class GitlabConstant {
 

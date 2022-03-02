@@ -29,7 +29,7 @@ public class FeedbackHistoryFragment extends BaseFragment<FeedbackHistoryFragmen
     @Inject
     FeedbackHistoryPresenter presenter;
 
-    private FeedbackHistoryRVAdapter adapter = new FeedbackHistoryRVAdapter();
+    private final FeedbackHistoryRVAdapter adapter = new FeedbackHistoryRVAdapter();
 
     @Override
     protected View getViewBinding(@NonNull LayoutInflater inflater,

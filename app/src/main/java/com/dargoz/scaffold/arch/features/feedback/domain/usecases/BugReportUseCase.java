@@ -1,6 +1,5 @@
 package com.dargoz.scaffold.arch.features.feedback.domain.usecases;
 
-
 import com.dargoz.scaffold.arch.core.models.Result;
 import com.dargoz.scaffold.arch.core.usecase.RxUseCase;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
@@ -12,8 +11,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
-import io.reactivex.Scheduler;
-import io.reactivex.schedulers.Schedulers;
 
 public class BugReportUseCase extends RxUseCase<Result<IssueEntity>, IssueEntity> {
     private final Repository repository;
@@ -23,10 +20,6 @@ public class BugReportUseCase extends RxUseCase<Result<IssueEntity>, IssueEntity
         this.repository = repository;
     }
 
-    @Override
-    public Scheduler getScheduler() {
-        return Schedulers.io();
-    }
 
     @Override
     public Flowable<Result<IssueEntity>> buildUseCase(IssueEntity issueEntity) {
@@ -39,7 +32,7 @@ public class BugReportUseCase extends RxUseCase<Result<IssueEntity>, IssueEntity
     }
 
     String getDescriptionDecoration(IssueEntity issue) {
-        return "✔️ Actual\n" + issue.getActual() + "❌ Expected\n" + issue.getExpected();
+        return "✔️ Actual\n" + issue.getActual() + "\n\n" + "❌ Expected\n" + issue.getExpected();
     }
 
 

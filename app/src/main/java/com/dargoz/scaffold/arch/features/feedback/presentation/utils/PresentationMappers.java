@@ -35,4 +35,10 @@ public class PresentationMappers {
         feedbackItemVM.setDescription(issueEntity.getDescription());
         return feedbackItemVM;
     }
+
+    public static IssueVM mapToIssueVM(IssueEntity data) {
+        IssueVM issueVM = new IssueVM();
+        issueVM.setTitle(data.getTitle());
+        return new IssueVM();
+    }
 }
