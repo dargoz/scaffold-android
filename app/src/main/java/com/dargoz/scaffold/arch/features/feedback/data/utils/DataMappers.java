@@ -1,12 +1,11 @@
 package com.dargoz.scaffold.arch.features.feedback.data.utils;
 
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.local.models.Issue;
-import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.requests.IssueRequest;
-import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.responses.IssueResponse;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.requests.IssueRequest;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.responses.IssueResponse;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class DataMappers {

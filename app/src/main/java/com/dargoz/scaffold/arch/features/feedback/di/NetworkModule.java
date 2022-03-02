@@ -2,7 +2,8 @@ package com.dargoz.scaffold.arch.features.feedback.di;
 
 import androidx.annotation.NonNull;
 
-import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.services.GitlabService;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.github.services.GithubService;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.services.GitlabService;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,6 +61,18 @@ public class NetworkModule {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
                 .create(GitlabService.class);
+    }
+
+    @NonNull
+    @Provides
+    public static GithubService provideGithubService(OkHttpClient client) {
+        return new Retrofit.Builder()
+                .baseUrl("https://api.github.com/")
+                .client(client)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+                .create(GithubService.class);
     }
 
 }

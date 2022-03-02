@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.dargoz.scaffold.arch.core.models.Result;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.local.LocalDataSource;
-import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.RemoteDataSource;
+import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.GitlabDataSource;
 import com.dargoz.scaffold.arch.features.feedback.data.utils.DataMappers;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.repositories.Repository;
@@ -16,15 +16,15 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 
 public class RepositoryImpl implements Repository {
-    private final RemoteDataSource remoteDataSource;
+    private final GitlabDataSource gitlabDataSource;
     private final LocalDataSource localDataSource;
 
 
     @Inject
     public RepositoryImpl(
-            RemoteDataSource remoteDataSource,
+            GitlabDataSource gitlabDataSource,
             LocalDataSource localDataSource) {
-        this.remoteDataSource = remoteDataSource;
+        this.gitlabDataSource = gitlabDataSource;
         this.localDataSource = localDataSource;
     }
 
@@ -35,7 +35,7 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public Flowable<Result<IssueEntity>> createIssue(IssueEntity issue) {
-        return remoteDataSource.createIssue(DataMappers.mapToIssueRequest(issue)).map(
+        return gitlabDataSource.createIssue(DataMappers.mapToIssueRequest(issue)).map(
                 issueResponse -> {
                     Log.d("DRG","issue response : " + issueResponse.toString());
                     return new Result<>(200, "Success", DataMappers.mapToIssueEntity(issueResponse));

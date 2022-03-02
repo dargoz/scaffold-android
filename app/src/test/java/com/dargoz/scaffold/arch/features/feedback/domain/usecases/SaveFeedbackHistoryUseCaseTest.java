@@ -1,7 +1,5 @@
 package com.dargoz.scaffold.arch.features.feedback.domain.usecases;
 
-import static org.junit.Assert.*;
-
 import android.os.Looper;
 
 import com.dargoz.scaffold.arch.core.models.Result;
@@ -17,7 +15,6 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 
 import io.reactivex.Flowable;
-import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.TestSubscriber;
 
 public class SaveFeedbackHistoryUseCaseTest {
@@ -41,11 +38,6 @@ public class SaveFeedbackHistoryUseCaseTest {
         useCase = new SaveFeedbackHistoryUseCase(repository);
     }
 
-    @Test
-    public void getScheduler() {
-        assertNotNull(useCase.getScheduler());
-        assertEquals(Schedulers.io(), useCase.getScheduler());
-    }
 
     @Test
     public void buildUseCase() {

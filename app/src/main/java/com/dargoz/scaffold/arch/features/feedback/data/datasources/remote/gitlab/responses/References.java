@@ -1,4 +1,4 @@
-package com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.responses;
+package com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.responses;
 
 import lombok.Data;
 

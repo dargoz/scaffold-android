@@ -2,11 +2,13 @@ package com.dargoz.scaffold.arch.features.feedback.presentation.presenters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Looper;
 import android.util.Log;
 
 
 import com.dargoz.scaffold.arch.core.binding.BasePresenter;
 import com.dargoz.scaffold.arch.core.models.Result;
+import com.dargoz.scaffold.arch.core.usecase.RxUseCase;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.usecases.BugReportUseCase;
 import com.dargoz.scaffold.arch.features.feedback.domain.usecases.SaveFeedbackHistoryUseCase;
@@ -16,8 +18,9 @@ import com.dargoz.scaffold.arch.features.feedback.presentation.utils.Presentatio
 import javax.inject.Inject;
 
 import dagger.hilt.android.qualifiers.ActivityContext;
-import io.reactivex.subscribers.DisposableSubscriber;
-
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 public class FeedbackPresenter extends BasePresenter<FeedbackContract.View>
         implements FeedbackContract.Presenter {
     private final BugReportUseCase bugReportUseCase;
@@ -40,18 +43,51 @@ public class FeedbackPresenter extends BasePresenter<FeedbackContract.View>
     public void submitFeedback(String title) {
         viewContract.onLoading();
         issueVM.setTitle(title);
-        bugReportUseCase.execute(PresentationMappers.toIssue(issueVM), result -> {
-            Log.d("DRG", "success submit result :: " + result.getData());
-            viewContract.onSuccess();
-            saveSubmitHistory(result);
+        bugReportUseCase
+                .setRxScheduler(new RxUseCase.RxScheduler() {
+                    @Override
+                    public Scheduler subscribeOnScheduler() {
+                        return Schedulers.io();
+                    }
 
-        });
+                    @Override
+                    public Scheduler observeOnScheduler() {
+                        return AndroidSchedulers.mainThread();
+                    }
+                })
+                .execute(PresentationMappers.toIssue(issueVM), result -> {
+                    Log.d("DRG", "success submit result :: " + result.getData());
+                    viewContract.onSuccess(PresentationMappers.mapToIssueVM(result.getData()));
+                    saveSubmitHistory(result);
+
+                });
+    }
+
+    @Override
+    public void onTitleChange(String text) {
+        //TODO : define your logic here
+    }
+
+    @Override
+    public void onDescriptionChange(String text) {
+        //TODO : define your logic here
     }
 
     @SuppressLint("CheckResult")
     private void saveSubmitHistory(Result<IssueEntity> data) {
-        saveFeedbackHistoryUseCase.execute(data.getData(), result -> {
-            Log.d("DRG", "success save feedback history");
-        });
+        saveFeedbackHistoryUseCase
+                .setRxScheduler(new RxUseCase.RxScheduler() {
+                    @Override
+                    public Scheduler subscribeOnScheduler() {
+                        return AndroidSchedulers.from(Looper.getMainLooper());
+                    }
+
+                    @Override
+                    public Scheduler observeOnScheduler() {
+                        return AndroidSchedulers.mainThread();
+                    }
+                })
+                .execute(data.getData(), result ->
+                        Log.d("DRG", "success save feedback history"));
     }
 }
