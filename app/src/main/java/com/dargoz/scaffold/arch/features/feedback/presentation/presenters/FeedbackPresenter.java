@@ -90,4 +90,10 @@ public class FeedbackPresenter extends BasePresenter<FeedbackContract.View>
                 .execute(data.getData(), result ->
                         Log.d("DRG", "success save feedback history"));
     }
+
+    @Override
+    public void destroy() {
+        bugReportUseCase.dispose();
+        saveFeedbackHistoryUseCase.dispose();
+    }
 }

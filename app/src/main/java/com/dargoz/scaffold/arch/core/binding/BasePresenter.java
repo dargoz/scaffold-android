@@ -2,14 +2,13 @@ package com.dargoz.scaffold.arch.core.binding;
 
 import android.content.Context;
 
-import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.dargoz.scaffold.arch.MainActivity;
 import com.dargoz.scaffold.arch.R;
 
 @SuppressWarnings("ALL")
-public class BasePresenter<ViewContract> {
+public abstract class BasePresenter<ViewContract> {
     protected ViewContract viewContract;
 
     public BasePresenter(Context context) {
@@ -17,4 +16,9 @@ public class BasePresenter<ViewContract> {
                 .getSupportFragmentManager().findFragmentById(R.id.main_nav_host_fragment);
         this.viewContract = (ViewContract) navHostFragment.getChildFragmentManager().getFragments().get(0);
     }
+
+    /**
+    * unsubscribe RxUseCase here
+    * */
+    public abstract void destroy();
 }

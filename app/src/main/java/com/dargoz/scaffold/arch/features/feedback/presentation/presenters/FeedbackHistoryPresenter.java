@@ -63,4 +63,9 @@ public class FeedbackHistoryPresenter extends BasePresenter<FeedbackHistoryContr
                     }
                 });
     }
+
+    @Override
+    public void destroy() {
+        getSubmitHistoryUseCase.dispose();
+    }
 }

@@ -17,6 +17,7 @@ public abstract class RxUseCase<T, Param> {
     }
 
     public RxScheduler rxScheduler;
+
     protected abstract Flowable<T> buildUseCase(Param param);
 
     public RxUseCase<T, Param> setRxScheduler(RxScheduler rxScheduler) {
@@ -25,7 +26,7 @@ public abstract class RxUseCase<T, Param> {
     }
 
     public void execute(Param param, DisposableSubscriber<T> consumer) {
-        if(rxScheduler == null) throw new NullPointerException("Don't forget to setRxScheduler()");
+        if (rxScheduler == null) throw new NullPointerException("Don't forget to setRxScheduler()");
         disposable = consumer;
         buildUseCase(param)
                 .subscribeOn(rxScheduler.subscribeOnScheduler())
@@ -34,7 +35,7 @@ public abstract class RxUseCase<T, Param> {
     }
 
     public void execute(Param param, Consumer<? super T> consumer) {
-        if(rxScheduler == null) throw new NullPointerException("Don't forget to setRxScheduler()");
+        if (rxScheduler == null) throw new NullPointerException("Don't forget to setRxScheduler()");
         disposable = buildUseCase(param)
                 .subscribeOn(rxScheduler.subscribeOnScheduler())
                 .observeOn(rxScheduler.subscribeOnScheduler())
@@ -42,6 +43,8 @@ public abstract class RxUseCase<T, Param> {
     }
 
     public void dispose() {
-        disposable.dispose();
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

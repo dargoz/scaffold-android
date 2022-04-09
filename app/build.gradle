@@ -7,12 +7,12 @@ plugins {
 apply from: "$project.rootDir/jacoco.gradle"
 
 android {
-    compileSdk 31
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.dargoz.scaffold.arch"
         minSdk 21
-        targetSdk 31
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
@@ -47,6 +47,7 @@ dependencies {
     def hilt_version = "2.38.1"
     def lombok_version = "1.18.22"
     def retrofit_version = "2.9.0"
+    def data_store_version = "1.0.0"
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation "com.google.android.material:material:$material_version"
@@ -69,6 +70,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
+    implementation "androidx.datastore:datastore-preferences:$data_store_version"
+    // optional - RxJava2 support
+    implementation "androidx.datastore:datastore-preferences-rxjava2:$data_store_version"
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-core:4.3.1"

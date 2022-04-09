@@ -52,6 +52,8 @@ public class FeedbackHistoryFragment extends BaseFragment<FeedbackHistoryFragmen
 
     @Override
     public void onSuccess(List<FeedbackItemVM> feedbackItemVMList) {
+        binding.feedbackHistoryEmptyTv
+                .setVisibility(feedbackItemVMList.isEmpty() ? View.VISIBLE : View.GONE);
         adapter.setFeedbackItemVMList(feedbackItemVMList);
         binding.feedbackHistoryRv.setAdapter(adapter);
     }
