@@ -48,8 +48,10 @@ dependencies {
     def lombok_version = "1.18.22"
     def retrofit_version = "2.9.0"
     def data_store_version = "1.0.0"
+    def core_version = "1.6.0"
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "androidx.core:core:$core_version"
     implementation "com.google.android.material:material:$material_version"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
 

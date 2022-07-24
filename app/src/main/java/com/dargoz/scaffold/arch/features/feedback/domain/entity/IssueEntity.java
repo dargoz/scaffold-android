@@ -9,6 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class IssueEntity {
 
+    int iid;
     String title;
     String description;
     String actual;

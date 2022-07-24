@@ -2,6 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_rect_border_primary"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -11,8 +17,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:textColor="@color/teal_700"
         android:text="@string/submitted_at_label_text" />
 
@@ -23,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@id/feedback_history_date_label_tv"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:textColor="@color/teal_700"
         android:text="@string/title_label_text" />
 
@@ -34,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/feedback_history_title_label_tv"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:textColor="@color/teal_700"
         android:text="@string/description_label_text" />
 
@@ -51,8 +56,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/feedback_history_guideline"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         tools:text="asd" />
 
     <TextView
@@ -62,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@id/feedback_history_date_value_tv"
         app:layout_constraintStart_toStartOf="@id/feedback_history_guideline"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         tools:text="asd" />
 
     <TextView
@@ -72,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@id/feedback_history_title_value_tv"
         app:layout_constraintStart_toStartOf="@id/feedback_history_guideline"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         tools:text="asd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,8 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
     @Inject
     FeedbackPresenter feedbackPresenter;
 
+    Toast mToast;
+
     @Override
     protected View getViewBinding(@NonNull LayoutInflater inflater,
                                   @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,8 +58,16 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        if(mToast != null) mToast.cancel();
+    }
+
+    @Override
     public void onSuccess(IssueVM issueVM) {
-        Toast.makeText(requireActivity(), "Success submit feedback", Toast.LENGTH_SHORT).show();
+        if(mToast != null) mToast.cancel();
+        mToast = Toast.makeText(requireActivity(), "Success submit feedback", Toast.LENGTH_SHORT);
+        mToast.show();
     }
 
     @Override

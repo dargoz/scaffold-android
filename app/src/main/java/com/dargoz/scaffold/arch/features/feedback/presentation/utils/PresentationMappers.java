@@ -11,6 +11,7 @@ public class PresentationMappers {
 
     public static IssueEntity toIssue(IssueVM issueVM) {
         return new IssueEntity(
+                0,
                 issueVM.getTitle(),
                 "",
                 issueVM.getActual(),
@@ -38,6 +39,7 @@ public class PresentationMappers {
 
     public static IssueVM mapToIssueVM(IssueEntity data) {
         IssueVM issueVM = new IssueVM();
+        issueVM.setId(data.getIid());
         issueVM.setTitle(data.getTitle());
         return new IssueVM();
     }

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IssueVM {
 
+    private int id;
     private String title;
     private String actual;
     private String expected;

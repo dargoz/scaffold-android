@@ -30,6 +30,7 @@ public class DataMappers {
 
     public static IssueEntity mapToIssueEntity(Issue issue) {
         return new IssueEntity(
+                issue.getId(),
                 issue.getTitle(),
                 issue.getDesc(),
                 "",
@@ -41,6 +42,7 @@ public class DataMappers {
 
     public static IssueEntity mapToIssueEntity(IssueResponse issueResponse) {
         return new IssueEntity(
+                issueResponse.getIid(),
                 issueResponse.getTitle(),
                 issueResponse.getDescription(),
                 "",
