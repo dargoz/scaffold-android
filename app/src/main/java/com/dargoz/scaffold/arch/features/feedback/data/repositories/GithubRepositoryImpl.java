@@ -1,6 +1,6 @@
 package com.dargoz.scaffold.arch.features.feedback.data.repositories;
 
-import com.dargoz.scaffold.arch.core.models.Result;
+import com.dargoz.core.models.Result;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.local.LocalDataSource;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.github.GithubDataSource;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;

@@ -4,8 +4,9 @@ import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
 
-import com.dargoz.scaffold.arch.core.binding.BasePresenter;
-import com.dargoz.scaffold.arch.core.usecase.RxUseCase;
+import com.dargoz.core.binding.BasePresenter;
+import com.dargoz.core.usecase.RxUseCase;
+import com.dargoz.scaffold.arch.R;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.usecases.GetSubmitHistoryUseCase;
 import com.dargoz.scaffold.arch.features.feedback.presentation.utils.PresentationMappers;
@@ -62,6 +63,11 @@ public class FeedbackHistoryPresenter extends BasePresenter<FeedbackHistoryContr
 
                     }
                 });
+    }
+
+    @Override
+    public int getNavHostId() {
+        return R.id.main_nav_host_fragment;
     }
 
     @Override

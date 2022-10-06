@@ -2,7 +2,7 @@ package com.dargoz.scaffold.arch.features.feedback.data.repositories;
 
 import android.util.Log;
 
-import com.dargoz.scaffold.arch.core.models.Result;
+import com.dargoz.core.models.Result;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.local.LocalDataSource;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.GitlabDataSource;
 import com.dargoz.scaffold.arch.features.feedback.data.utils.DataMappers;

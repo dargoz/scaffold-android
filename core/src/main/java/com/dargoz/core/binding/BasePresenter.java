@@ -1,24 +1,28 @@
-package com.dargoz.scaffold.arch.core.binding;
+package com.dargoz.core.binding;
 
 import android.content.Context;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.dargoz.scaffold.arch.MainActivity;
-import com.dargoz.scaffold.arch.R;
 
 @SuppressWarnings("ALL")
 public abstract class BasePresenter<ViewContract> {
     protected ViewContract viewContract;
 
     public BasePresenter(Context context) {
-        NavHostFragment navHostFragment = (NavHostFragment) ((MainActivity)context)
-                .getSupportFragmentManager().findFragmentById(R.id.main_nav_host_fragment);
+        NavHostFragment navHostFragment = (NavHostFragment) ((AppCompatActivity) context)
+                .getSupportFragmentManager().findFragmentById(getNavHostId());
         this.viewContract = (ViewContract) navHostFragment.getChildFragmentManager().getFragments().get(0);
     }
 
     /**
-    * unsubscribe RxUseCase here
-    * */
+     * nav host fragment id
+     */
+    public abstract int getNavHostId();
+
+    /**
+     * unsubscribe RxUseCase here
+     */
     public abstract void destroy();
 }

@@ -1,4 +1,4 @@
-package com.dargoz.scaffold.arch.core.usecase;
+package com.dargoz.core.usecase;
 
 
 import io.reactivex.Flowable;

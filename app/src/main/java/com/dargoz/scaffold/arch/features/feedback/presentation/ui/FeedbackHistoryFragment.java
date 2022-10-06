@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dargoz.scaffold.arch.core.binding.BaseFragment;
+import com.dargoz.core.binding.BaseFragment;
 import com.dargoz.scaffold.arch.databinding.FeedbackHistoryFragmentBinding;
 import com.dargoz.scaffold.arch.features.feedback.presentation.adapters.FeedbackHistoryRVAdapter;
 import com.dargoz.scaffold.arch.features.feedback.presentation.models.FeedbackItemVM;

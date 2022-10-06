@@ -1,4 +1,4 @@
-package com.dargoz.scaffold.arch.core.models;
+package com.dargoz.core.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
