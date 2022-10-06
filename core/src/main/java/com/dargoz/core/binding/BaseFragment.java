@@ -1,4 +1,4 @@
-package com.dargoz.scaffold.arch.core.binding;
+package com.dargoz.core.binding;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

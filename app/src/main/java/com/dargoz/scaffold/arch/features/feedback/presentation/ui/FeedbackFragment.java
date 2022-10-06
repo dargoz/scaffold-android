@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.dargoz.core.binding.BaseFragment;
 import com.dargoz.scaffold.arch.R;
-import com.dargoz.scaffold.arch.core.binding.BaseFragment;
 import com.dargoz.scaffold.arch.databinding.FeedbackFragmentBinding;
 import com.dargoz.scaffold.arch.features.feedback.presentation.models.IssueVM;
 import com.dargoz.scaffold.arch.features.feedback.presentation.presenters.FeedbackContract;

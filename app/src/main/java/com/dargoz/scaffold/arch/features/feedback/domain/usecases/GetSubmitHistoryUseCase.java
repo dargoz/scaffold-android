@@ -1,6 +1,6 @@
 package com.dargoz.scaffold.arch.features.feedback.domain.usecases;
 
-import com.dargoz.scaffold.arch.core.usecase.RxUseCase;
+import com.dargoz.core.usecase.RxUseCase;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.repositories.Repository;
 

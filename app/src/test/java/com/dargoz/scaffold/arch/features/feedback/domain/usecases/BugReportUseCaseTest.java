@@ -2,7 +2,7 @@ package com.dargoz.scaffold.arch.features.feedback.domain.usecases;
 
 import static org.junit.Assert.assertEquals;
 
-import com.dargoz.scaffold.arch.core.models.Result;
+import com.dargoz.core.models.Result;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.repositories.Repository;
 
@@ -19,7 +19,8 @@ import io.reactivex.subscribers.TestSubscriber;
 public class BugReportUseCaseTest {
     private BugReportUseCase useCase;
 
-    private IssueEntity issueTestCase = new IssueEntity(
+    private final IssueEntity issueTestCase = new IssueEntity(
+            0,
             "[BUG]",
             "error",
             "error",
@@ -27,7 +28,8 @@ public class BugReportUseCaseTest {
             "",
             new ArrayList<>());
 
-    private IssueEntity issueResult = new IssueEntity(
+    private final IssueEntity issueResult = new IssueEntity(
+            0,
             "[BUG]",
             "✔️ Actual\nerror❌ Expected\ntidak error",
             "",

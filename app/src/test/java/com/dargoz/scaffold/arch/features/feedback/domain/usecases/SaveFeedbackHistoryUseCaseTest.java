@@ -2,7 +2,7 @@ package com.dargoz.scaffold.arch.features.feedback.domain.usecases;
 
 import android.os.Looper;
 
-import com.dargoz.scaffold.arch.core.models.Result;
+import com.dargoz.core.models.Result;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.repositories.Repository;
 
@@ -21,6 +21,7 @@ public class SaveFeedbackHistoryUseCaseTest {
     private SaveFeedbackHistoryUseCase useCase;
     private MockedStatic<Looper> looperMockedStatic;
     private final IssueEntity issueResult = new IssueEntity(
+            0,
             "[BUG]",
             "✔️ Actual\nerror❌ Expected\ntidak error",
             "",
