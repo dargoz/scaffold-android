@@ -16,6 +16,7 @@ import java.util.List;
 
 public class DataMappersTest {
     private final IssueEntity issueResult = new IssueEntity(
+            0,
             "[BUG]",
             "✔️ Actual\nerror❌ Expected\ntidak error",
             "",
