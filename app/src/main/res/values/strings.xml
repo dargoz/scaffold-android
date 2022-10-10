@@ -9,4 +9,9 @@
     <string name="title_label_text">title :</string>
     <string name="description_label_text">description :</string>
     <string name="no_history_text">No history</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password_hint">password</string>
+    <string name="username_hint">username</string>
+    <string name="login_btn">login</string>
 </resources>

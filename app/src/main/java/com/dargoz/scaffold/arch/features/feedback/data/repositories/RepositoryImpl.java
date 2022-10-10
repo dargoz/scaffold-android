@@ -3,6 +3,7 @@ package com.dargoz.scaffold.arch.features.feedback.data.repositories;
 import android.util.Log;
 
 import com.dargoz.core.models.Result;
+import com.dargoz.core.models.UiState;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.local.LocalDataSource;
 import com.dargoz.scaffold.arch.features.feedback.data.datasources.remote.gitlab.GitlabDataSource;
 import com.dargoz.scaffold.arch.features.feedback.data.utils.DataMappers;
@@ -38,7 +39,7 @@ public class RepositoryImpl implements Repository {
         return gitlabDataSource.createIssue(DataMappers.mapToIssueRequest(issue)).map(
                 issueResponse -> {
                     Log.d("DRG","issue response : " + issueResponse.toString());
-                    return new Result<>(200, "Success", DataMappers.mapToIssueEntity(issueResponse));
+                    return new Result<>(UiState.success, "Success", DataMappers.mapToIssueEntity(issueResponse));
                 }
         );
     }
@@ -46,6 +47,6 @@ public class RepositoryImpl implements Repository {
     @Override
     public Flowable<Result<String>> saveIssue(IssueEntity issue) {
         return localDataSource.insertIssue(DataMappers.mapToIssue(issue))
-                .map(result -> new Result<>(200, "Success", result.toString()));
+                .map(result -> new Result<>(UiState.success, "Success", result.toString()));
     }
 }

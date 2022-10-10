@@ -49,7 +49,7 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
             }
         });
         binding.feedbackHistoryTextView.setOnClickListener(v -> Navigation.findNavController(v)
-                .navigate(R.id.action_feedbackFragment_to_feedbackHistoryFragment));
+                .navigate(R.id.action_feedbackFragment_to_loginFragment));
     }
 
     @Override

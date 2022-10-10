@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/feedbackFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/feedbackFragment"
@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_feedbackFragment_to_feedbackHistoryFragment"
             app:destination="@id/feedbackHistoryFragment" />
+        <action
+            android:id="@+id/action_feedbackFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedbackHistoryFragment"
         android:name="com.dargoz.scaffold.arch.features.feedback.presentation.ui.FeedbackHistoryFragment"
         android:label="feedback_history_fragment"
         tools:layout="@layout/feedback_history_fragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dargoz.scaffold.arch.features.login.presentation.ui.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" />
 </navigation>

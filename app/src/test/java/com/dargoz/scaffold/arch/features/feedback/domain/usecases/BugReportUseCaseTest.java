@@ -3,6 +3,7 @@ package com.dargoz.scaffold.arch.features.feedback.domain.usecases;
 import static org.junit.Assert.assertEquals;
 
 import com.dargoz.core.models.Result;
+import com.dargoz.core.models.UiState;
 import com.dargoz.scaffold.arch.features.feedback.domain.entity.IssueEntity;
 import com.dargoz.scaffold.arch.features.feedback.domain.repositories.Repository;
 
@@ -40,7 +41,7 @@ public class BugReportUseCaseTest {
     @Before
     public void setup() {
         Repository repository = Mockito.mock(Repository.class);
-        Mockito.doReturn(Flowable.just(new Result<>(200, "", issueResult)))
+        Mockito.doReturn(Flowable.just(new Result<>(UiState.success, "", issueResult)))
                 .when(repository).createIssue(issueTestCase);
         useCase = new BugReportUseCase(repository);
     }
@@ -56,7 +57,7 @@ public class BugReportUseCaseTest {
     public void execute() {
         TestSubscriber<Result<IssueEntity>> testSubscriber = useCase.buildUseCase(issueTestCase).test();
         testSubscriber.assertSubscribed();
-        Result<IssueEntity> expected = new Result<>(200, "", issueResult);
+        Result<IssueEntity> expected = new Result<>(UiState.success, "", issueResult);
         testSubscriber.assertValue(expected);
     }
 
