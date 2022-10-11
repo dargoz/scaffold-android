@@ -70,6 +70,32 @@
         android:text="@string/login_btn"
         app:cornerRadius="16dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/alice_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="Go to Alice"
+            app:cornerRadius="16dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bob_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="Go to Bob"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
+
 
 
 </LinearLayout>

@@ -26,5 +26,38 @@
         android:id="@+id/loginFragment"
         android:name="com.dargoz.scaffold.arch.features.login.presentation.ui.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_aliceFragment"
+            app:destination="@id/aliceFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_bobFragment"
+            app:destination="@id/bobFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aliceFragment"
+        android:name="com.dargoz.scaffold.arch.features.login.presentation.ui.AliceFragment"
+        android:label="alice_fragment"
+        tools:layout="@layout/alice_fragment" >
+        <action
+            android:id="@+id/action_aliceFragment_to_bobFragment"
+            app:destination="@id/bobFragment" />
+        <action
+            android:id="@+id/action_back_alice"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/bobFragment"
+        android:name="com.dargoz.scaffold.arch.features.login.presentation.ui.BobFragment"
+        android:label="bob_fragment"
+        tools:layout="@layout/bob_fragment">
+        <action
+            android:id="@+id/action_back_bob"
+            app:destination="@id/aliceFragment"
+            />
+
+    </fragment>
 </navigation>
