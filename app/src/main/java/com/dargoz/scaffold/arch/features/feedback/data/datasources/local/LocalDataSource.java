@@ -1,5 +1,6 @@
 package com.dargoz.scaffold.arch.features.feedback.data.datasources.local;
 
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.datastore.preferences.core.Preferences;
@@ -13,6 +14,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
@@ -45,6 +47,7 @@ public class LocalDataSource {
                     try {
                         issue.setId(issue.hashCode());
                         transaction.insert(issue);
+                        Log.d("DRG", "success insert issue");
                         s.onNext(issue);
                     } catch (Exception e) {
                         s.onError(e);
@@ -53,6 +56,6 @@ public class LocalDataSource {
             } catch (Exception e) {
                 s.onError(e);
             }
-        });
+        }).subscribeOn(AndroidSchedulers.from(Looper.getMainLooper()));
     }
 }

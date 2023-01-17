@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
             }
         });
         binding.feedbackHistoryTextView.setOnClickListener(v -> Navigation.findNavController(v)
-                .navigate(R.id.action_feedbackFragment_to_loginFragment));
+                .navigate(R.id.action_feedbackFragment_to_feedbackHistoryFragment));
     }
 
     @Override
@@ -65,9 +66,10 @@ public class FeedbackFragment extends BaseFragment<FeedbackFragmentBinding>
 
     @Override
     public void onSuccess(IssueVM issueVM) {
-        if(mToast != null) mToast.cancel();
+       /* if(mToast != null) mToast.cancel();
         mToast = Toast.makeText(requireActivity(), "Success submit feedback", Toast.LENGTH_SHORT);
-        mToast.show();
+        mToast.show();*/
+        Log.d("DRG", "onSuccess...");
     }
 
     @Override
