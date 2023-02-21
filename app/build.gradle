@@ -42,6 +42,7 @@ android {
 
 dependencies {
     implementation project(":core")
+    implementation project(":example")
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation "androidx.core:core:$core_version"
@@ -69,6 +70,10 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:$data_store_version"
     // optional - RxJava2 support
     implementation "androidx.datastore:datastore-preferences-rxjava2:$data_store_version"
+
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"

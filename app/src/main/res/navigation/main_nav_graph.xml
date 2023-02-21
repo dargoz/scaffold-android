@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/feedbackFragment">
+    app:startDestination="@id/occupationFragment">
 
     <fragment
         android:id="@+id/feedbackFragment"
@@ -26,5 +26,10 @@
         android:id="@+id/loginFragment"
         android:name="com.dargoz.scaffold.arch.features.login.presentation.ui.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/fragment_occupation" />
+    <fragment
+        android:id="@+id/occupationFragment"
+        android:name="com.dargoz.example.presentation.ui.OccupationFragment"
+        android:label="occupation_fragment"
+        tools:layout="@layout/fragment_occupation" />
 </navigation>
