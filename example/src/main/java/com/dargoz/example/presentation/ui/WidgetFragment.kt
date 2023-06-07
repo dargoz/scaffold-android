@@ -1,21 +1,21 @@
 package com.dargoz.example.presentation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.dargoz.core.binding.BaseFragment
-import com.dargoz.example.databinding.FragmentOccupationBinding
+import com.dargoz.example.databinding.FragmentWidgetBinding
 import com.dargoz.example.presentation.viewmodels.TestViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
 @AndroidEntryPoint
-class OccupationFragment : BaseFragment<FragmentOccupationBinding>() {
+class WidgetFragment : BaseFragment<FragmentWidgetBinding>() {
 
     private val testViewModel: TestViewModel by viewModels()
 
@@ -24,7 +24,7 @@ class OccupationFragment : BaseFragment<FragmentOccupationBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOccupationBinding.inflate(inflater, container, false)
+        binding = FragmentWidgetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,12 +32,13 @@ class OccupationFragment : BaseFragment<FragmentOccupationBinding>() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             testViewModel.state.collectLatest {
-
+                val data = it.getOrDefault(listOf("sample 1")).toString()
+                Log.d("DRG", "set Text to View ${this@WidgetFragment} :: $data")
+                binding.widgetText.text = data
             }
         }
-        binding.submitButton.setOnClickListener {
-            testViewModel.getData()
-        }
+        testViewModel.getData()
     }
+
 
 }

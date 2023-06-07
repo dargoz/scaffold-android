@@ -13,9 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.dargoz.core.binding.BaseFragment;
 import com.dargoz.core.models.Result;
+import com.dargoz.scaffold.arch.R;
 import com.dargoz.scaffold.arch.databinding.LoginFragmentBinding;
 import com.dargoz.scaffold.arch.features.login.presentation.models.LoginModel;
 import com.dargoz.scaffold.arch.features.login.presentation.viewmodels.LoginViewModel;
@@ -45,6 +47,9 @@ public class LoginFragment extends BaseFragment<LoginFragmentBinding> {
                 v->loginViewModel.requestAuth(
                         Objects.requireNonNull(binding.loginUsernameEditText.getText()).toString(),
                         Objects.requireNonNull(binding.loginPassEditText.getText()).toString())
+        );
+        binding.mediatorButton.setOnClickListener(v->
+                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_dashboardFragment)
         );
     }
 

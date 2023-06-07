@@ -11,6 +11,6 @@ class GetOccupationListUseCase @Inject constructor(private val testRepository: T
     override suspend fun buildUseCase(param: String): List<OccupationEntity> {
         val result = testRepository.getRepository()
         Log.d("DRG", "use case result : $result")
-        return emptyList()
+        return result
     }
 }
