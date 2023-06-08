@@ -15,3 +15,6 @@ dependencyResolutionManagement {
 rootProject.name = "scaffold"
 include ':app'
 include ':core'
+include ':example'
+include ':design'
+include ':dashboard'

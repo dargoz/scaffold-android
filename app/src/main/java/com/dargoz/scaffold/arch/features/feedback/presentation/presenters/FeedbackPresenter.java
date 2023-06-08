@@ -59,7 +59,7 @@ public class FeedbackPresenter extends BasePresenter<FeedbackContract.View>
                 .execute(PresentationMappers.toIssue(issueVM), result -> {
                     Log.d("DRG", "success submit result :: " + result.getData());
                     viewContract.onSuccess(PresentationMappers.mapToIssueVM(result.getData()));
-                    saveSubmitHistory(result);
+//                    saveSubmitHistory(result);
 
                 });
     }

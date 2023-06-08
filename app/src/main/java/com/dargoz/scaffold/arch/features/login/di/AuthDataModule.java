@@ -1,6 +1,5 @@
 package com.dargoz.scaffold.arch.features.login.di;
 
-import com.dargoz.scaffold.arch.features.feedback.di.NetworkModule;
 import com.dargoz.scaffold.arch.features.login.data.repositories.AuthRepositoryImpl;
 import com.dargoz.scaffold.arch.features.login.domain.repositories.AuthRepository;
 

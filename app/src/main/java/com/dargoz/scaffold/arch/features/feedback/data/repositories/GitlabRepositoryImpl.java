@@ -16,13 +16,13 @@ import javax.inject.Inject;
 
 import io.reactivex.Flowable;
 
-public class RepositoryImpl implements Repository {
+public class GitlabRepositoryImpl implements Repository {
     private final GitlabDataSource gitlabDataSource;
     private final LocalDataSource localDataSource;
 
 
     @Inject
-    public RepositoryImpl(
+    public GitlabRepositoryImpl(
             GitlabDataSource gitlabDataSource,
             LocalDataSource localDataSource) {
         this.gitlabDataSource = gitlabDataSource;
@@ -31,6 +31,7 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public Flowable<List<IssueEntity>> getSavedIssue(int id) {
+
         return localDataSource.getIssue(id).map(DataMappers::mapToIssueEntity);
     }
 
@@ -39,6 +40,8 @@ public class RepositoryImpl implements Repository {
         return gitlabDataSource.createIssue(DataMappers.mapToIssueRequest(issue)).map(
                 issueResponse -> {
                     Log.d("DRG","issue response : " + issueResponse.toString());
+                    Result<String> resultCache = saveIssue(DataMappers.mapToIssueEntity(issueResponse)).blockingFirst();
+                    Log.d("DRG","cache : " + resultCache.getData());
                     return new Result<>(UiState.success, "Success", DataMappers.mapToIssueEntity(issueResponse));
                 }
         );

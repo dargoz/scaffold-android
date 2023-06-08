@@ -14,4 +14,5 @@
     <string name="password_hint">password</string>
     <string name="username_hint">username</string>
     <string name="login_btn">login</string>
+    <string name="example_btn">mediator</string>
 </resources>
